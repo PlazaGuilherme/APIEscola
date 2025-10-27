@@ -119,14 +119,7 @@ Em produção, altere `Jwt:Key` para uma chave forte e única.
   - `APIEscola.Application`: comandos/consultas (MediatR), validações e serviços (ex.: JWT)
   - `APIEscola` (API): controllers, middleware e configuração
 
-### 8) Troubleshooting
-
-- Erro de conexão com banco: verifique se o contêiner está ativo (`docker ps`) e se a `ConnectionStrings:SqlServer` aponta para `localhost,8001`.
-- 401 Unauthorized: verifique se o token está no header `Authorization: Bearer <token>` e se não expirou.
-- 403 Forbidden: apenas administradores acessam as rotas (registre com `isAdmin: true`).
-- Certificado SQL: `TrustServerCertificate=true` já está definido para ambiente local.
-
-### 9) Segurança (produção)
+### 8) Segurança (produção)
 
 - Use HTTPS e uma `Jwt:Key` forte.
 - Considere rotacionar chaves e reduzir `Jwt:ExpirationHours`.
