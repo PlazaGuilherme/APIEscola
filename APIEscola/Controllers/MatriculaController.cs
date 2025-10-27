@@ -8,7 +8,7 @@ namespace APIEscola.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Policy = "AdminOnly")]
+    [Authorize(Roles = "Admin")]
     public class MatriculaController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -35,7 +35,7 @@ namespace APIEscola.Controllers
             return Ok(result);
         }
 
-
+  
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Matricula>>> GetAll(int pageNumber = 1, int pageSize = 10)
         {
