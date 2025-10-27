@@ -49,11 +49,9 @@ namespace APIEscola.Controllers
             if (!result.Succeeded)
                 return BadRequest(result.Errors);
 
-            // Cria a role "Admin" se não existir
             if (!await _roleManager.RoleExistsAsync("Admin"))
                 await _roleManager.CreateAsync(new IdentityRole("Admin"));
 
-            // Se for admin, adiciona a role
             if (model.IsAdmin)
                 await _userManager.AddToRoleAsync(user, "Admin");
 
@@ -77,7 +75,6 @@ namespace APIEscola.Controllers
             if (!result.Succeeded)
                 return Unauthorized(new { message = "Email ou senha inválidos" });
 
-            // Verifica se o usuário é administrador
             if (!user.IsAdmin)
                 return Forbid("Apenas administradores podem acessar o sistema");
 
