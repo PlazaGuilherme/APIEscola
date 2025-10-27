@@ -1,0 +1,22 @@
+﻿services:
+  db-sqlserver:
+    container_name: "db-sqlserver-apiescola"
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    ports:
+      - "8001:1433"
+    volumes:
+      - db_apiescola:/var/opt/mssql
+      - ./configure-remote-access.sql:/docker-entrypoint-initdb.d/configure-remote-access.sql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+      SA_PASSWORD: "mF2xXyAU9T85D7KZ8sgLXxG9x"
+    networks:
+      - APIEscolaNetwork
+      
+volumes:
+  db_apiescola:
+
+networks:
+  APIEscolaNetwork:
+    driver: bridge

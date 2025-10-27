@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="13.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Commands\MatriculaCommand\UpdateMatriculaCommand.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\APIEscola.Domain\APIEscola.Domain.csproj" />
+    <ProjectReference Include="..\APIEscola.Infrastructure\APIEscola.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
